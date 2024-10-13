@@ -2,10 +2,10 @@
 // Student ID: 101451857
 // COMP 3123 - Assignment One - Full Stack Development I
 
-// loading env variables
+// Loading env variables
 require('dotenv').config(); 
 
-// importing required moduls
+// importing required modules
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
