@@ -66,7 +66,7 @@ router.put('/employees/:eid', async (req, res) => {
 
 // Delete employee
 router.delete('/employees/:eid', async (req, res) => {
-    const { eid } = req.query; 
+    const { eid } = req.params; 
     try {
         const employee = await Employee.findByIdAndDelete(eid);
         if (!employee) {
