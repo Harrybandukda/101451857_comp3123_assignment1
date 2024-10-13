@@ -30,7 +30,17 @@ router.post('/', async (req, res) => {
 });
 
 // Get employee by ID
-
-
+router.get('/employees/:eid', async (req, res) => {
+    const {eid} = req.params; 
+    try {
+        const employee = await Employee.findById(eid); 
+        if (!employee) {
+            return res.status(404).send({ message: 'Emp not found.' }); 
+        }
+        res.status(200).send(employee); 
+    } catch (err) {
+        res.status(500).send({ message: 'Server issue. Could not retieve emp.' });
+    }
+});
 
 module.exports = router;
