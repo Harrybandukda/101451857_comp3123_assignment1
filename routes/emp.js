@@ -43,4 +43,24 @@ router.get('/employees/:eid', async (req, res) => {
     }
 });
 
+// Update employee details
+router.put('/employees/:eid', async (req, res) => {
+    const { eid } = req.params; 
+    const updates = req.body; 
+    try {
+        const employee = await Employee.findByIdAndUpdate(eid, updates, { new: true, runValidators: true }); 
+        if (!employee) {
+            return res.status(404).send({ message: 'employee not found.' }); 
+        }
+        res.status(200).send({
+            message: 'Employee details updated.',
+            employee
+        }); 
+    } catch (err) {
+        res.status(400).send({ 
+            message: 'Error updating employee.',
+            error: err.message 
+        });
+    }
+});
 module.exports = router;
