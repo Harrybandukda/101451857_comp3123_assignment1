@@ -10,13 +10,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 5000;
-const users = require('./routes/user');
+const user = require('./routes/user');
 const emp = require('./routes/emp'); 
 
 app.use(express.json());
 
 // Routes setup for user and emp 
-app.use('/users', users);
+app.use('/user', user);
 app.use('/emp', emp); 
 
 // Connect to MongoDB
