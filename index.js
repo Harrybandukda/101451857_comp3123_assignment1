@@ -3,10 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 5000;
-const users = require('./routes/user');
+const user = require('./routes/user');
 
 app.use(express.json());
-app.use('/users', users); 
+app.use('/user', user); 
 
 const mongoURI = process.env.MONGODB_URI; 
 if (!mongoURI) {
