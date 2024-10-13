@@ -3,7 +3,7 @@ const router = express.Router();
 const Employee = require('../models/employees');
 
 // Get all employees
-router.get('/', async (req, res) => {
+router.get('/employees', async (req, res) => {
     try {
         const employees = await Employee.find(); 
         res.status(200).send(employees); 
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // Add new employee
-router.post('/', async (req, res) => {
+router.post('/employees', async (req, res) => {
     const employee = new Employee(req.body); 
     try {
         await employee.save();
