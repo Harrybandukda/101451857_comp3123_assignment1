@@ -63,4 +63,22 @@ router.put('/employees/:eid', async (req, res) => {
         });
     }
 });
+
+// Delete employee
+router.delete('/employees/:eid', async (req, res) => {
+    const { eid } = req.query; 
+    try {
+        const employee = await Employee.findByIdAndDelete(eid);
+        if (!employee) {
+            return res.status(404).send({ message: 'employee not found.' }); 
+        }
+        res.status(200).send({
+            message: 'Employee deleted.',
+            employee
+        }); 
+    } catch (err) {
+        res.status(500).send({ message: 'Server issue. Could not delete employee.' });
+    }
+});
+
 module.exports = router;
