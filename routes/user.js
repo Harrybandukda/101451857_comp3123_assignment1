@@ -1,3 +1,7 @@
+// Mo Harry Bandukda
+// Student ID: 101451857
+// COMP 3123 - Assignment One - Full Stack Development I
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
